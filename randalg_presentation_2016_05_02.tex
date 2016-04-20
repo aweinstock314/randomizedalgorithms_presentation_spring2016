@@ -1,0 +1,41 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\title{Dictionaries via randomized hashing\\Randomized Algorithms}
+\date{May 2$^\text{nd}$, 2016}
+\author{Neil McGlohon, James Olyha, Avi Weinstock}
+\usepackage{fancyvrb}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+\begin{document}
+\maketitle
+
+\begin{frame}[fragile]
+\frametitle{The dictionary interface}
+The idea is to construct a type $\mathcal D$ that represents a set $S \subset U$
+\begin{itemize}
+\item
+$\verb|new| : \emptyset \rightarrow \mathcal D$\\
+\verb|new| constructs a representation of the empty set
+\item
+$\verb|insert| : U \rightarrow \mathcal D \rightarrow \mathcal D$\\
+$\verb|delete| : U \rightarrow \mathcal D \rightarrow \mathcal D$\\
+\verb|insert|/\verb|delete| model union/intersection of singletons
+\item
+$\verb|lookup| : U \rightarrow \mathcal D \rightarrow \{0,1\}$\\
+\verb|lookup| represents set membership
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Naive implementation}
+\begin{itemize}
+\item
+An array of bits of length $|U|$
+\item
+Pro: $O(1)$ lookup/insert/delete time complexity
+\item
+Con: $O(|U|)$ space complexity
+\end{itemize}
+\end{frame}
+
+\end{document}
